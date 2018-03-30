@@ -1,0 +1,146 @@
+/* Reset default setups */
+* {
+	padding: 0;
+	margin: 0;
+}
+
+/* Style for the Header pane */
+#header {
+	/* Header takes 95% of the screen width and is positioned in the center */
+	background-color: #b8cced;
+	width: 95%;
+	margin: auto;
+	margin-top: 15px;
+	position: relative;
+	height: 80px;
+}
+#header .header-logo {
+	/* Logo should be on the left-hand side */
+	float: left;
+	height: 80px;
+	margin: 1px;
+}
+#header .header-text {
+	/* Text is centered */
+	text-align: center;
+}
+#header:after {
+	content: "";
+	clear: both;
+}
+
+/* Style for the Paragraph panes - GENERAL */
+#p-container {
+	/* the container takes 95% of the screen size and is positioned in the center - the same as the Header
+	   The container uses Flexboxes to make its children responsive - space between and wrappable */
+	width: 95%;
+	margin-left: 2.5%;
+	/* Flexbox Start */
+	display: -webkit-box; 
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex; 
+	display: flex;
+	/* Flexbox End */
+	/* Flexbox-wrap Start */
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	/* Flexbox-wrap End */
+	/* Flexbox-justify-content Start */
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	/* Flexbox-justify-content End */
+}
+#p1, #p2, #p3, #p4 {
+	/* each individual paragraph is divided from the upper paragraph by a gap of 45px */
+	margin-top: 45px;
+}
+#p4 {
+	/* the last paragraph creates a gap with the bottom of the window */
+	margin-bottom: 25px;
+}
+
+/* Style for the Paragraph panes - BUTTONS */
+.paragraph {
+	/* container of each paragraph is positioned relatively in order to allow position: absolute for the buttons */
+	position: relative;
+}
+.p-btn {
+	/* the button is positioned in the top right corner and beyond the container on the top */
+	position: absolute;
+	top: -33px;
+	right: 0;
+	margin-bottom: 20px;
+	padding: 7px 20px;
+
+	/* formatting, colour - the same as that of the Header */
+	background-color: #b8cced;
+	border: 0.5px black solid;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+/* Style for the Paragraph panes - TEXT */
+.p-text {
+	/* the same border radius as that the the buttons, must be scrollable by the Y axis */
+	border: 1px black solid;
+	border-radius: 5px;
+	padding: 5px 20px;
+	height: 200px;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+/* Responsive design */
+@media screen and (min-width: 751px), screen and (device-min-width: 751px) {
+	/* two paragraphs in one row */
+	#p1, #p2, #p3, #p4 {
+		-webkit-flex-basis: 47%;
+		flex-basis: 47%;
+	}
+
+	/* standard font-size and padding - all text in one row */
+	#header .header-text {
+		padding-top: 20px;
+	}
+}
+@media screen and (min-width: 451px) and (max-width: 750px), screen and (device-min-width: 451px) and (device-max-width: 750px) {
+	/* one paragraph in one row */
+	#p1, #p2, #p3, #p4 {
+		-webkit-flex-basis: 100%;
+		flex-basis: 100%;
+	}
+
+	/* standard font-size and padding - all text in one row  */
+	#header .header-text {
+		padding-top: 20px;
+	}
+}
+
+@media screen and (min-width: 376px) and (max-width: 450px), screen and (device-min-width: 376px) and (device-max-width: 450px) {
+	/* one paragraph in one row */
+	#p1, #p2, #p3, #p4 {
+		-webkit-flex-basis: 100%;
+		flex-basis: 100%;
+	}
+
+	/* decrease the font-size and increase padding - all text in one row */
+	#header .header-text {
+		font-size: 25px;
+		padding-top: 22.5px;
+	}
+}
+
+@media screen and (max-width: 375px), screen and (device-max-width: 375px) {
+	/* one paragraph in one row */
+	#p1, #p2, #p3, #p4 {
+		-webkit-flex-basis: 100%;
+		flex-basis: 100%;
+	}
+
+	/* standard font-size, but minimum top-padding - all text in two rows */
+	#header .header-text {
+		padding-top: 2px;
+	}
+}
